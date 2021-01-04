@@ -38,7 +38,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
     @prototype.update(prototype_params)
     if @prototype.update(prototype_params)
-      redirect_to root_path
+      redirect_to prototype_path
     else
       render :edit
     end
@@ -59,6 +59,7 @@ class PrototypesController < ApplicationController
     prototype = Prototype.find(params[:id])
    if prototype.user_id != current_user.id
     redirect_to action: :index
+    
    end
   end
 end
